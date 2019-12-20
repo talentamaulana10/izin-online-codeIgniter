@@ -44,26 +44,31 @@ class Crud extends CI_Controller{
 
 	function edit($id){
 		$where = array('id' => $id);
-		$data['user'] = $this->m_data->edit_data($where,'user')->result();
+		$data['ijin'] = $this->m_data->edit_data($where,'ijin')->result();
 		$this->load->view('v_edit',$data);
 	}
 	function update(){
 		$id = $this->input->post('id');
-		$nama = $this->input->post('nama');
-		$alamat = $this->input->post('alamat');
-		$pekerjaan = $this->input->post('pekerjaan');
+		$id_marketting = $this->input->post('id_marketting');
+		$jenis = $this->input->post('jenis');
+		$tgl_a = $this->input->post('tgl_a');
+		$tgl_b = $this->input->post('tgl_b');
+		$keterangan = $this->input->post('keterangan');
+
 	 
 		$data = array(
-			'nama' => $nama,
-			'alamat' => $alamat,
-			'pekerjaan' => $pekerjaan
+			'id_marketting' => $id_marketting,
+			'jenis' => $jenis,
+			'tgl_a' => $tgl_a,
+			'tgl_b' => $tgl_b,
+			'ket'   => $keterangan
 		);
 	 
 		$where = array(
 			'id' => $id
 		);
 	 
-		$this->m_data->update_data($where,$data,'user');
+		$this->m_data->update_data($where,$data,'ijin');
 		redirect('crud/index');
 	}
 

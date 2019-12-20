@@ -29,7 +29,7 @@
 			<td><?php echo $u->tgl_b ?></td>
 			<td><?php echo $u->ket ?></td>
 			<td>
-				
+			<?php echo anchor('crud/edit/'.$u->id,'Edit'); ?>
 				<?php echo anchor('crud/hapus/'.$u->id,'Hapus'); ?>		
 			</td>
 		</tr>
